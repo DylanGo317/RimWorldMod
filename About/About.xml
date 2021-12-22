@@ -13,11 +13,11 @@
 
   <modDependencies>
     <!-- used to pop up a warning and options if prerequisite mods aren't loaded -->
-    <li>
+    <!--<li>
       <displayName>Misc. MapGenerator</displayName>
       <packageId>Haplo.Miscellaneous.MapGenerator</packageId>
       <steamWorkshopUrl>steam://https://steamcommunity.com/sharedfiles/filedetails/?id=704182588</steamWorkshopUrl>
-    </li>
+    </li>-->
   </modDependencies>
 
   <!--
@@ -28,5 +28,5 @@
     Pre-bug hunting ounce of prevention
     -->
   <loadBefore></loadBefore>
-  <loadAfter><li>Haplo.Miscellaneous.MapGenerator</li></loadAfter> <!-- Although it is possible to use a numeric id, it's less comprehensible to do so -->
+  <loadAfter><!--<li>Haplo.Miscellaneous.MapGenerator</li>--></loadAfter> <!-- Although it is possible to use a numeric id, it's less comprehensible to do so -->
 </ModMetaData>
