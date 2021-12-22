@@ -2,7 +2,7 @@
 <ModMetaData>
   <name>Hello, World</name>
   <author>planteras bane</author>
-  <packageId>planteras-bane.HelloWorld</packageId> <!-- Common practice to use author name as a namespace to avoid name collision issues -->
+  <packageId>planterasbane.HelloWorld</packageId> <!-- Common practice to use author name as a namespace to avoid name collision issues -->
 
   <description>Mod development example</description> <!-- appears in mod list -->
 
@@ -28,6 +28,5 @@
     Pre-bug hunting ounce of prevention
     -->
   <loadBefore></loadBefore>
-    <li>Haplo.Miscellaneous.MapGenerator</li>
-  <loadAfter></loadAfter> <!-- Although it is possible to use a numeric id, it's less comprehensible to do so -->
+  <loadAfter><li>Haplo.Miscellaneous.MapGenerator</li></loadAfter> <!-- Although it is possible to use a numeric id, it's less comprehensible to do so -->
 </ModMetaData>
