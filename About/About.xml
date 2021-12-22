@@ -28,5 +28,6 @@
     Pre-bug hunting ounce of prevention
     -->
   <loadBefore></loadBefore>
+    <li>Haplo.Miscellaneous.MapGenerator</li>
   <loadAfter></loadAfter> <!-- Although it is possible to use a numeric id, it's less comprehensible to do so -->
 </ModMetaData>
