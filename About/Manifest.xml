@@ -9,6 +9,6 @@
   <version>2021.12.22</version>
 
   <!-- These links wire up the new version available alert in Mod Manager -->
-  <manifestUri>https://raw.githubusercontent.com/AngleWyrm10/HelloWorld/master/About/Manifest.xml</manifestUri>
-  <downloadUri>https://github.com/AngleWyrm10/HelloWorld/releases/latest</downloadUri>
+  <manifestUri>https://raw.githubusercontent.com/DylanGo317/RimWorldMod/master/About/Manifest.xml</manifestUri>
+  <downloadUri>https://github.com/DylanGo317/RimWorldMod/releases/latest</downloadUri>
 </Manifest>
