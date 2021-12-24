@@ -1,0 +1,84 @@
+<?xml version ="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- Mosin Nagant 91/30-->
+    <ThingDef ParentName="BaseBullet">
+        <defName>TW_Bullet_9130MosinNagant</defName>
+        <label>mosin nagant bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>20</damageAmountBase>
+            <speed>80</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>TW_Gun_9130MosinNagant</defName>
+        <label>Mosin Nagant 91/30</label>
+        <description>Bolt-action rifle firing 7.62x54mmR ammunition.</description>
+        <graphicData>
+            <texPath>Things/WeaponRanged/BoltActionRifle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>RifleLoad</soundInteract>
+        <recipeMaker>
+                <recipeUsers>
+                    <li>TableMachining</li>
+                </recipeUsers>
+            <researchPrerequisite>Gunsmithing</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>3</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <statBases>
+            <WorkToMake>1000</WorkToMake>
+            <Mass>5</Mass>
+            <AccuracyTouch>0.95</AccuracyTouch>
+            <AccuracyShort>0.9</AccuracyShort>
+            <AccuracyMedium>0.75</AccuracyMedium>
+            <AccuracyLong>0.5</AccuracyLong>
+            <RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+            <Steel>50</Steel>
+        </costList>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>TW_Bullet_9130MosinNagant</defaultProjectile>
+                <warmupTime>0.6</warmupTime>
+                <range>40</range>
+                <soundCast>GenericBoltRifleShot</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>10</muzzleFlashScale>
+            </li>
+        </verbs>
+        <weaponTags>
+            <li>SimpleGun</li>
+        </weaponTags>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>3</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+</Defs>

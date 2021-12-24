@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Hello, World</name>
+  <name>Total War</name>
   <author>planteras bane</author>
-  <packageId>planterasbane.HelloWorld</packageId> <!-- Common practice to use author name as a namespace to avoid name collision issues -->
+  <packageId>planterasbane.TotalWar</packageId> <!-- Common practice to use author name as a namespace to avoid name collision issues -->
 
-  <description>Mod development example</description> <!-- appears in mod list -->
+  <description>A mod that adds real weapons and realistic combat.</description> <!-- appears in mod list -->
 
   <supportedVersions>
     <!-- used by version check warning -->
