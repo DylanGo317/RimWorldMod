@@ -2,7 +2,7 @@
 <Defs>
 
 <!-- Mosin Nagant 91/30 Projectile-->
-    <ThingDef ParentName="BaseBullet">
+    <ThingDef Class="TotalWar.ModExtension_IncendiaryBullet" ParentName="BaseBullet">
         <defName>TW_Bullet_9130MosinNagant</defName>
         <label>mosin nagant bullet</label>
         <graphicData>
