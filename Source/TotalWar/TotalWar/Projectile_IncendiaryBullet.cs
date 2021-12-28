@@ -8,7 +8,7 @@ using RimWorld;
 
 namespace TotalWar
 {
-    //Codes for the chance of the hediff being added to the target upon a successful shot
+    //Codes for the chance of the fire attachment being added to the target upon a successful shot
     class Projectile_IncendiaryBullet : Bullet
     {
         public ModExtension_IncendiaryBullet Props => base.def.GetModExtension<ModExtension_IncendiaryBullet>();
@@ -16,32 +16,24 @@ namespace TotalWar
         protected override void Impact(Thing hitThing)
         {
             base.Impact(hitThing);
-            if (Props != null && hitThing != null && hitThing is Pawn hitPawn)
+            //Make sure the hit thing is not null and that props isn't null
+            if (Props != null && hitThing != null)
             {
-                //Chance for the hediff to be applied to the pawn
+                //Chance for the fire attachment to be applied to the object
                 float rand = Rand.Value;
-                if (rand <= Props.addHediffChance)
+                //Do not really need to check here if fire can be attached to the hit thing because
+                //this is already handled by source code
+                if (rand <= Props.addBurnChance)
                 {
-                    Messages.Message("TotalWar_IncendiaryBullet_SuccessMessage".Translate(this.launcher.Label, hitPawn.Label), 
+                    Messages.Message("TotalWar_IncendiaryBullet_SuccessMessage".Translate(this.launcher.Label, hitThing.Label), 
                         MessageTypeDefOf.NeutralEvent);
-                    Hediff burnOnPawn = hitPawn.health?.hediffSet?.GetFirstHediffOfDef(Props.hediffToAdd);
-                    //Generates an int for the severity of the burn
-                    Random rnd = new Random();
-                    int randomSeverity = rnd.Next(1, 4);
-                    if (burnOnPawn != null)
-                    {
-                        burnOnPawn.Severity += randomSeverity;
-                    }
-                    else
-                    {
-                        Hediff hediff = HediffMaker.MakeHediff(Props.hediffToAdd, hitPawn);
-                        hediff.Severity = randomSeverity;
-                        hitPawn.health.AddHediff(hediff);
-                    }
+                    //Generates a float for the size of the fire
+                    float fireSize = Rand.Range(0.1f, 0.3f);
+                    FireUtility.TryAttachFire(hitThing, fireSize);
                 }
                 else
                 {
-                    MoteMaker.ThrowText(hitThing.PositionHeld.ToVector3(), hitThing.MapHeld, "TotalWar_IncendiaryBullet_FailureMote".Translate(Props.addHediffChance), 12f);
+                    MoteMaker.ThrowText(hitThing.PositionHeld.ToVector3(), hitThing.MapHeld, "TotalWar_IncendiaryBullet_FailureMote".Translate(Props.addBurnChance), 12f);
                 }
             }
         }

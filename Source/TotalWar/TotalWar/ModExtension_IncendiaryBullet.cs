@@ -12,7 +12,6 @@ namespace TotalWar
 {
     public class ModExtension_IncendiaryBullet : DefModExtension
     {
-        public float addHediffChance = 0.9f;
-        public HediffDef hediffToAdd;
+        public float addBurnChance = 0.9f;
     }
 }

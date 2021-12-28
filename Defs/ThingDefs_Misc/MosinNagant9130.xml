@@ -2,7 +2,7 @@
 <Defs>
 
 <!-- Mosin Nagant 91/30 Projectile-->
-    <ThingDef Class="TotalWar.ModExtension_IncendiaryBullet" ParentName="BaseBullet">
+    <ThingDef ParentName="BaseBullet">
         <defName>TW_Bullet_9130MosinNagant</defName>
         <label>mosin nagant bullet</label>
         <graphicData>
@@ -14,13 +14,12 @@
             <damageAmountBase>20</damageAmountBase>
             <speed>80</speed>
         </projectile>
+        <thingClass>TotalWar.Projectile_IncendiaryBullet</thingClass>
         <modExtensions>
             <li Class="TotalWar.ModExtension_IncendiaryBullet">
-                <addHediffChance>0.9</addHediffChance>
-                <hediffToAdd>Burn</hediffToAdd>
+                <addBurnChance>0.9</addBurnChance>
             </li>
         </modExtensions>
-        <thingClass>TotalWar.Projectile_IncendiaryBullet</thingClass>
     </ThingDef>
 
 <!-- Mosin nagant 91/30 -->

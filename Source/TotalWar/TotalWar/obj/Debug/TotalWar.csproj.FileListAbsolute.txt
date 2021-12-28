@@ -1,0 +1,4 @@
+D:\SteamLibrary\SteamApps\common\RimWorld\Mods\TotalWar\Assemblies\TotalWar.dll
+D:\SteamLibrary\SteamApps\common\RimWorld\Mods\TotalWar\Source\TotalWar\TotalWar\obj\Debug\TotalWar.csprojAssemblyReference.cache
+D:\SteamLibrary\SteamApps\common\RimWorld\Mods\TotalWar\Source\TotalWar\TotalWar\obj\Debug\TotalWar.csproj.CoreCompileInputs.cache
+D:\SteamLibrary\SteamApps\common\RimWorld\Mods\TotalWar\Source\TotalWar\TotalWar\obj\Debug\TotalWar.dll

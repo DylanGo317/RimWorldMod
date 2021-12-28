@@ -49,7 +49,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FirstClass.cs" />
+    <Compile Include="Projectile_IncendiaryBullet.cs" />
+    <Compile Include="ModExtension_IncendiaryBullet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
