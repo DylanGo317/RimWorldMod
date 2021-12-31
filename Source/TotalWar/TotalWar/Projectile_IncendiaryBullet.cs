@@ -8,7 +8,8 @@ using RimWorld;
 
 namespace TotalWar
 {
-    //Codes for the chance of the fire attachment being added to the target upon a successful shot
+    //Projectile that performs the function of the base bullet in accordance with
+    //the data provided in the def as well as adding a fire attachment to the hit thing
     class Projectile_IncendiaryBullet : Bullet
     {
         public ModExtension_IncendiaryBullet Props => base.def.GetModExtension<ModExtension_IncendiaryBullet>();
@@ -25,15 +26,9 @@ namespace TotalWar
                 //this is already handled by source code
                 if (rand <= Props.addBurnChance)
                 {
-                    Messages.Message("TotalWar_IncendiaryBullet_SuccessMessage".Translate(this.launcher.Label, hitThing.Label), 
-                        MessageTypeDefOf.NeutralEvent);
                     //Generates a float for the size of the fire
                     float fireSize = Rand.Range(0.1f, 0.3f);
                     FireUtility.TryAttachFire(hitThing, fireSize);
-                }
-                else
-                {
-                    MoteMaker.ThrowText(hitThing.PositionHeld.ToVector3(), hitThing.MapHeld, "TotalWar_IncendiaryBullet_FailureMote".Translate(Props.addBurnChance), 12f);
                 }
             }
         }
