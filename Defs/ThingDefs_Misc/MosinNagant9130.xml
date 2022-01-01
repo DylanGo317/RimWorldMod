@@ -31,7 +31,7 @@
             <texPath>Things/WeaponRanged/BoltActionRifle</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
-        <soundInteract>RifleLoad</soundInteract>
+        <soundInteract>Interact_Rifle</soundInteract>
         <recipeMaker>
                 <recipeUsers>
                     <li>TableMachining</li>
@@ -60,7 +60,7 @@
                 <defaultProjectile>TW_Bullet_9130MosinNagant</defaultProjectile>
                 <warmupTime>0.6</warmupTime>
                 <range>40</range>
-                <soundCast>GenericBoltRifleShot</soundCast>
+                <soundCast>Shot_Rifle</soundCast>
                 <soundCastTail>GunTail_Medium</soundCastTail>
                 <muzzleFlashScale>10</muzzleFlashScale>
             </li>

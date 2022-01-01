@@ -1,0 +1,2 @@
+﻿Probably override both Verb_LaunchProjectile and Verb_Shoot
+Then create a ThingComp to store the data and time since failure

@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 using RimWorld;
 using Verse;
 
-
-
 namespace TotalWar
 {
-    //Chance to inflict burn damage
-    public class ModExtension_IncendiaryBullet : DefModExtension
+    //Subclasses Verb_LaunchProjectileTW and adds the same functionality
+    //that Verb_Shoot adds to Verb_LaunchProjectile
+    class Verb_ShootTW : Verb_LaunchProjectileTW
     {
-        public float addBurnChance = 0.9f;
     }
 }

@@ -10,6 +10,7 @@ namespace TotalWar
 {
     //Projectile that performs the function of the base bullet in accordance with
     //the data provided in the def as well as adding a fire attachment to the hit thing
+    //Change thingClass to this class in xml to make the projectile incendiary
     class Projectile_IncendiaryBullet : Bullet
     {
         public ModExtension_IncendiaryBullet Props => base.def.GetModExtension<ModExtension_IncendiaryBullet>();
