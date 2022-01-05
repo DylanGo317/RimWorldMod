@@ -55,12 +55,12 @@
         </costList>
         <verbs>
             <li>
-                <verbClass>Verb_Shoot</verbClass>
+                <verbClass>TotalWar.Verb_ShootTW</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
                 <defaultProjectile>TW_Bullet_9130MosinNagant</defaultProjectile>
                 <warmupTime>0.6</warmupTime>
                 <range>40</range>
-                <soundCast>Shot_Rifle</soundCast>
+                <soundCast>Shot_BoltActionRifle</soundCast>
                 <soundCastTail>GunTail_Medium</soundCastTail>
                 <muzzleFlashScale>10</muzzleFlashScale>
             </li>
@@ -87,5 +87,11 @@
                 <cooldownTime>2</cooldownTime>
             </li>
         </tools>
+        <comps>
+            <li Class="TotalWar.ThingComp_ReliabilityProperties">
+                <weaponFailureFixTime>4.0</weaponFailureFixTime>
+                <weaponSuccessChance>0.9</weaponSuccessChance>
+            </li>
+        </comps>
     </ThingDef>
 </Defs>

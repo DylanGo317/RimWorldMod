@@ -21,6 +21,40 @@ namespace TotalWar
             {
                 return false;
             }
+            //This line is moved up here so that the ThingComp
+            //that tells whether or not the weapon can be fired
+            //can be called before the projectile is checked
+            Thing equipment = base.EquipmentSource;
+            ThingComp_Reliability reliability = (ThingComp_Reliability) equipment.TryGetComp<ThingComp>();
+            //Checks that the equipment actually has the reliability comp
+            if (reliability != null)
+            {
+                //Gets the properties for the comp
+                ThingComp_ReliabilityProperties reliabilityProps = 
+                    (ThingComp_ReliabilityProperties)equipment.TryGetComp<ThingComp_Reliability>().props;
+                if (reliabilityProps != null)
+                {
+                    if (!reliability.canShoot)
+                    {
+                        Log.Message("canShoot false");
+                        return false;
+                    }
+                    //Weapon does not shoot based on successChance
+                    float successChance = reliabilityProps.weaponSuccessChance;
+                    if (Rand.Value > successChance)
+                    {
+                        Messages.Message("Weapon_Failure".Translate(), MessageTypeDefOf.NeutralEvent);
+                        reliability.resetTickSinceLastShot();
+                        return false;
+                    }
+                } else
+                {
+                    Log.Message("reliability Props null");
+                }
+            } else
+            {
+                Log.Message("reliability null");
+            }
             ThingDef projectile = this.Projectile;
             if (projectile == null)
             {
@@ -47,7 +81,7 @@ namespace TotalWar
             }
             this.lastShotTick = Find.TickManager.TicksGame;
             Thing thing = this.caster;
-            Thing equipment = base.EquipmentSource;
+            //Defined this earlier Thing equipment = base.EquipmentSource;
             CompMannable compMannable = this.caster.TryGetComp<CompMannable>();
             if (compMannable != null && compMannable.ManningPawn != null)
             {
