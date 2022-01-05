@@ -25,13 +25,15 @@ namespace TotalWar
             //that tells whether or not the weapon can be fired
             //can be called before the projectile is checked
             Thing equipment = base.EquipmentSource;
-            ThingComp_Reliability reliability = (ThingComp_Reliability) equipment.TryGetComp<ThingComp>();
+            ThingComp_Reliability reliability = equipment.TryGetComp<ThingComp_Reliability>();
+            Log.Message("Reliability gotten");
             //Checks that the equipment actually has the reliability comp
             if (reliability != null)
             {
                 //Gets the properties for the comp
                 ThingComp_ReliabilityProperties reliabilityProps = 
                     (ThingComp_ReliabilityProperties)equipment.TryGetComp<ThingComp_Reliability>().props;
+                Log.Message("Reliability props gotten");
                 if (reliabilityProps != null)
                 {
                     if (!reliability.canShoot)
