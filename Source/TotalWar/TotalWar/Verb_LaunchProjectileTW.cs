@@ -26,36 +26,34 @@ namespace TotalWar
             //can be called before the projectile is checked
             Thing equipment = base.EquipmentSource;
             ThingComp_Reliability reliability = equipment.TryGetComp<ThingComp_Reliability>();
-            Log.Message("Reliability gotten");
             //Checks that the equipment actually has the reliability comp
             if (reliability != null)
             {
                 //Gets the properties for the comp
                 ThingComp_ReliabilityProperties reliabilityProps = 
                     (ThingComp_ReliabilityProperties)equipment.TryGetComp<ThingComp_Reliability>().props;
-                Log.Message("Reliability props gotten");
                 if (reliabilityProps != null)
                 {
+                    reliability.checkStatus();
                     if (!reliability.canShoot)
                     {
-                        Log.Message("canShoot false");
                         return false;
                     }
                     //Weapon does not shoot based on successChance
                     float successChance = reliabilityProps.weaponSuccessChance;
                     if (Rand.Value > successChance)
                     {
-                        Messages.Message("Weapon_Failure".Translate(), MessageTypeDefOf.NeutralEvent);
+                        //Messages.Message("Weapon_Failure".Translate(), MessageTypeDefOf.NeutralEvent);
                         reliability.resetTickSinceLastShot();
                         return false;
                     }
                 } else
                 {
-                    Log.Message("reliability Props null");
+                    //Log.Message("reliability Props null");
                 }
             } else
             {
-                Log.Message("reliability null");
+                //Log.Message("reliability null");
             }
             ThingDef projectile = this.Projectile;
             if (projectile == null)

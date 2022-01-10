@@ -31,6 +31,7 @@
             <texPath>Things/WeaponRanged/BoltActionRifle</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
+        <tickerType>Normal</tickerType>
         <soundInteract>Interact_Rifle</soundInteract>
         <recipeMaker>
                 <recipeUsers>

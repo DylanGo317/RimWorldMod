@@ -15,24 +15,7 @@ namespace TotalWar
             //Set these two equal so that the ticks are not incremented
             //Converts seconds to ticks
             base.Initialize(props);
-            ticksToShoot = (int)weaponFailureFixTime;
-            ticksSinceFailure = ticksToShoot;
-        }
-
-        //Increments ticksSinceFailure every tick and sets
-        //canShoot to true when ticksSinceFailure is equal
-        //to or greater than ticksToShoot
-        public override void CompTick()
-        {
-            base.CompTick();
-            if (ticksSinceFailure < ticksToShoot)
-            {
-                ticksSinceFailure++;
-            }
-            else
-            {
-                canShoot = true;
-            }
+            ticksToShoot = (int) (weaponFailureFixTime * 60);
         }
 
         //Used to set ticksSinceFailure back to zero so that
@@ -40,14 +23,24 @@ namespace TotalWar
         //and the weapon is temporarily disabled
         public void resetTickSinceLastShot()
         {
-            ticksSinceFailure = 0;
+            failureTick = Find.TickManager.TicksGame;
             canShoot = false;
+        }
+
+        //Checks whether enough ticks have passed and updates
+        //canShoot accordingly
+        public void checkStatus()
+        {
+            if (Find.TickManager.TicksGame - failureTick >= ticksToShoot)
+            {
+                canShoot = true;
+            }
         }
 
         public bool canShoot = true;
         public ThingComp_ReliabilityProperties Props => (ThingComp_ReliabilityProperties)this.props;
         public float weaponFailureFixTime => Props.weaponFailureFixTime;
         private int ticksToShoot; //Stored tick value reached before canShoot is set back to true
-        private int ticksSinceFailure; //Stored tick value that counts number of ticks since failure
+        private int failureTick; //Tick that the weapon failed
     }
 }
