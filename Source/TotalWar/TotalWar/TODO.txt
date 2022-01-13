@@ -1,0 +1,1 @@
+﻿Add automatic select fire based on range, potentially add manual select fire

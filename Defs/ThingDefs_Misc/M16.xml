@@ -60,7 +60,7 @@
             </li>
         </verbs>
         <weaponTags>
-            <li>SimpleGun</li>
+            <!-- <li>SimpleGun</li> -->
         </weaponTags>
         <tools>
             <li>
@@ -85,6 +85,8 @@
             <li Class="TotalWar.ThingComp_ReliabilityProperties">
                 <weaponFailureFixTime>2.0</weaponFailureFixTime>
                 <weaponSuccessChance>0.98</weaponSuccessChance>
+            </li>
+            <li Class="TotalWar.ThingComp_SelectFireProperties">
             </li>
         </comps>
     </ThingDef>

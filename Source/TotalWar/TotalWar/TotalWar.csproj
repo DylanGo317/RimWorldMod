@@ -56,11 +56,17 @@
     <Compile Include="HarmonyBase.cs" />
     <Compile Include="ThingComp_Reliability.cs" />
     <Compile Include="ThingComp_ReliabilityProperties.cs" />
+    <Compile Include="ThingComp_SelectFire.cs" />
+    <Compile Include="ThingComp_SelectFireProperties.cs" />
+    <Compile Include="VerbTW.cs" />
     <Compile Include="Verb_LaunchProjectileTW.cs" />
     <Compile Include="Verb_ShootTW.cs" />
     <Compile Include="Projectile_IncendiaryBullet.cs" />
     <Compile Include="ModExtension_IncendiaryBullet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

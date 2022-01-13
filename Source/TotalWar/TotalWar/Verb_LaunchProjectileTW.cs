@@ -13,7 +13,7 @@ namespace TotalWar
     //Most code is the same, but it is easier to subclass in this case
     //than transpile using harmony. Additionally, it allows for only
     //some weapons to run this code, leaving vanilla weapons unchanged.
-    class Verb_LaunchProjectileTW : Verb_LaunchProjectile
+    class Verb_LaunchProjectileTW : VerbTW
     {
         protected override bool TryCastShot()
         {
@@ -122,6 +122,7 @@ namespace TotalWar
                     }
                 }
             }
+            //This appears to be where miss chance is calculated
             ShotReport shotReport = ShotReport.HitReportFor(this.caster, this, this.currentTarget);
             Thing randomCoverToMissInto = shotReport.GetRandomCoverToMissInto();
             ThingDef targetCoverDef = (randomCoverToMissInto != null) ? randomCoverToMissInto.def : null;
@@ -138,6 +139,7 @@ namespace TotalWar
                 projectile2.Launch(thing, drawPos, shootLine.Dest, this.currentTarget, projectileHitFlags2, this.preventFriendlyFire, equipment, targetCoverDef);
                 return true;
             }
+            //Probably chance to hit cover
             if (this.currentTarget.Thing != null && this.currentTarget.Thing.def.category == ThingCategory.Pawn && !Rand.Chance(shotReport.PassCoverChance))
             {
                 this.ThrowDebugText("ToCover" + (this.canHitNonTargetPawnsNow ? "\nchntp" : ""));
@@ -160,11 +162,13 @@ namespace TotalWar
                 projectileHitFlags4 |= ProjectileHitFlags.NonTargetWorld;
             }
             this.ThrowDebugText("ToHit" + (this.canHitNonTargetPawnsNow ? "\nchntp" : ""));
+            //Hits target
             if (this.currentTarget.Thing != null)
             {
                 projectile2.Launch(thing, drawPos, this.currentTarget, this.currentTarget, projectileHitFlags4, this.preventFriendlyFire, equipment, targetCoverDef);
                 this.ThrowDebugText("Hit\nDest", this.currentTarget.Cell);
             }
+            //Exceptional case
             else
             {
                 projectile2.Launch(thing, drawPos, shootLine.Dest, this.currentTarget, projectileHitFlags4, this.preventFriendlyFire, equipment, targetCoverDef);
@@ -187,6 +191,59 @@ namespace TotalWar
             {
                 MoteMaker.ThrowText(this.caster.DrawPos, this.caster.Map, text, -1f);
             }
+        }
+
+        //Other methods in the vanilla version of the file that now must be
+        //copied over in order to subclass the modified version of
+        //Verb
+        public override void WarmupComplete()
+        {
+            base.WarmupComplete();
+            Find.BattleLog.Add(new BattleLogEntry_RangedFire(this.caster, this.currentTarget.HasThing ? this.currentTarget.Thing : null, (base.EquipmentSource != null) ? base.EquipmentSource.def : null, this.Projectile, this.ShotsPerBurst > 1));
+        }
+
+        public virtual ThingDef Projectile
+        {
+            get
+            {
+                if (base.EquipmentSource != null)
+                {
+                    CompChangeableProjectile comp = base.EquipmentSource.GetComp<CompChangeableProjectile>();
+                    if (comp != null && comp.Loaded)
+                    {
+                        return comp.Projectile;
+                    }
+                }
+                return this.verbProps.defaultProjectile;
+            }
+        }
+
+        public override float HighlightFieldRadiusAroundTarget(out bool needLOSToCenter)
+        {
+            needLOSToCenter = true;
+            ThingDef projectile = this.Projectile;
+            if (projectile == null)
+            {
+                return 0f;
+            }
+            return projectile.projectile.explosionRadius;
+        }
+
+        public override bool Available()
+        {
+            if (!base.Available())
+            {
+                return false;
+            }
+            if (this.CasterIsPawn)
+            {
+                Pawn casterPawn = this.CasterPawn;
+                if (casterPawn.Faction != Faction.OfPlayer && casterPawn.mindState.MeleeThreatStillThreat && casterPawn.mindState.meleeThreat.Position.AdjacentTo8WayOrInside(casterPawn.Position))
+                {
+                    return false;
+                }
+            }
+            return this.Projectile != null;
         }
     }
 }

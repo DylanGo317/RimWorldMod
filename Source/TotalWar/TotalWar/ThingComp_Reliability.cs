@@ -9,7 +9,6 @@ namespace TotalWar
 {
     class ThingComp_Reliability : ThingComp
     {
-        //Set initial values on initialization
         public override void Initialize(CompProperties props)
         {
             //Set these two equal so that the ticks are not incremented
@@ -18,9 +17,7 @@ namespace TotalWar
             ticksToShoot = (int) (weaponFailureFixTime * 60);
         }
 
-        //Used to set ticksSinceFailure back to zero so that
-        //and canShoot to false so that the timer will start
-        //and the weapon is temporarily disabled
+        //Disables shooting
         public void resetTickSinceLastShot()
         {
             failureTick = Find.TickManager.TicksGame;
