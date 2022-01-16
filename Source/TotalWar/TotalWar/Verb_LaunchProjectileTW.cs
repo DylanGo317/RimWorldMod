@@ -31,7 +31,7 @@ namespace TotalWar
             {
                 //Gets the properties for the comp
                 ThingComp_ReliabilityProperties reliabilityProps = 
-                    (ThingComp_ReliabilityProperties)equipment.TryGetComp<ThingComp_Reliability>().props;
+                    (ThingComp_ReliabilityProperties) equipment.TryGetComp<ThingComp_Reliability>().props;
                 if (reliabilityProps != null)
                 {
                     reliability.checkStatus();

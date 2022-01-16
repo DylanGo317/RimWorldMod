@@ -2,7 +2,7 @@
 <Defs>
 <!-- M16 Projectile-->
     <ThingDef ParentName="BaseBullet">
-        <defName>TW_Bullet_M16</defName>
+        <defName>TW_Bullet_M16_TW</defName>
         <label>M16 Bullet</label>
         <graphicData>
             <texPath>Things/Projectile/Bullet_Small</texPath>
@@ -18,7 +18,7 @@
 
 <!-- M16 -->
     <ThingDef ParentName="BaseHumanMakeableGun">
-        <defName>TW_M16</defName>
+        <defName>TW_M16_TW</defName>
         <label>M16</label>
         <description>A fully-automatic Vietnam-era American classic.</description>
         <graphicData>
@@ -51,7 +51,7 @@
             <li>
                 <verbClass>TotalWar.Verb_ShootTW</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>TW_Bullet_M16</defaultProjectile>
+                <defaultProjectile>TW_Bullet_M16_TW</defaultProjectile>
                 <warmupTime>0.1</warmupTime>
                 <range>35</range>
                 <soundCast>Shot_AssaultRifle</soundCast>

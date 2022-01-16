@@ -15,12 +15,55 @@ namespace TotalWar
         //before the first series of shots are fired
         public override void WarmupComplete()
         {
-            //The float value of distance to the target squared
-            float shotDistanceSquared = ((float)this.CasterPawn.Position.DistanceToSquared(CurrentTarget.Cell));
-            //set this.verbProps.accuracyTouch/Short/Medium/Long
-            //Retrieve thingComp that stores information on range, accuracy, and fire modes here
-            Log.Message(shotDistanceSquared.ToString());
-            base.WarmupComplete();
+            Thing equipment = base.EquipmentSource;
+            ThingComp_SelectFire selectFire = equipment.TryGetComp<ThingComp_SelectFire>();
+            if (selectFire != null) {
+                ThingComp_SelectFireProperties selectFireProps =
+                    (ThingComp_SelectFireProperties)equipment.TryGetComp<ThingComp_SelectFire>().props;
+                if (selectFireProps != null)
+                { 
+                    //The float value of distance to the target squared
+                    float shotDistanceSquared = ((float)this.CasterPawn.Position.DistanceToSquared(CurrentTarget.Cell));
+                    Log.Message((selectFireProps.shortRange * selectFireProps.shortRange).ToString());
+                    Log.Message(shotDistanceSquared.ToString());
+                    int fireMode = 0;
+                    if (shotDistanceSquared > selectFireProps.longRange * selectFireProps.longRange)
+                    {
+                        fireMode = selectFireProps.longToVeryLong;
+                    } else if (shotDistanceSquared > selectFireProps.mediumRange * selectFireProps.mediumRange)
+                    {
+                        fireMode = selectFireProps.mediumToLong;
+                    } else if (shotDistanceSquared > selectFireProps.shortRange * selectFireProps.shortRange)
+                    {
+                        fireMode = selectFireProps.shortToMedium;
+                    } else if (shotDistanceSquared > selectFireProps.touchRange * selectFireProps.touchRange)
+                    {
+                        fireMode = selectFireProps.touchToShort;
+                    } else
+                    {
+                        fireMode = selectFireProps.zeroToTouch;
+                    }
+                    if (fireMode == 2)
+                    {
+                        this.burstShotsLeft = 1;
+                        verbProps.warmupTime = selectFireProps.ticksBetweenShots.TicksToSeconds();
+                    }
+                    else if (fireMode == 1)
+                    {
+                        this.burstShotsLeft = 3;
+                        verbProps.warmupTime = selectFireProps.ticksBetweenShots.TicksToSeconds();
+                    }
+                    Log.Message(burstShotsLeft.ToString());
+                    this.state = VerbState.Bursting;
+                    this.TryCastNextBurstShot();
+                } else
+                {
+                    base.WarmupComplete();
+                }
+            } else
+            {
+                base.WarmupComplete();
+            }
         }
     }
 }

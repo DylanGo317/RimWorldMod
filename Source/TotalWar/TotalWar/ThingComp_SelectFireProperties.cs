@@ -10,14 +10,15 @@ namespace TotalWar
     public class ThingComp_SelectFireProperties : CompProperties
     {
         //0 is semi, 1 is burst, 2 is auto
+        public int longToVeryLong = 0;
         // Default > 25 tiles
-        public int MediumToLong = 0;
+        public int mediumToLong = 0;
         // Default < 25 Tiles
-        public int ShortToMedium = 0;
+        public int shortToMedium = 0;
         // Default < 12 tiles
-        public int TouchToShort = 1;
+        public int touchToShort = 1;
         // Defualt < 3 tiles
-        public int ZeroToTouch = 2;
+        public int zeroToTouch = 2;
 
         //Sets definition of range for current weapon (in tiles)
         public int longRange = 40;
@@ -33,5 +34,10 @@ namespace TotalWar
         //Time between shots whether semi or burst is the same
         public int burstShots = 3;
         public int ticksBetweenShots = 60;
+
+        public ThingComp_SelectFireProperties()
+        {
+            this.compClass = typeof(ThingComp_SelectFire);
+        }
     }
 }
