@@ -1,0 +1,93 @@
+<?xml version ="1.0" encoding="utf-8" ?>
+<Defs>
+<!-- M14 Projectile-->
+    <ThingDef ParentName="BaseBullet">
+        <defName>TW_Bullet_M14_TW</defName>
+        <label>M14 Bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>18</damageAmountBase>
+            <speed>76</speed>
+        </projectile>
+        <thingClass>Bullet</thingClass>
+    </ThingDef>
+
+<!-- M16 -->
+    <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>TW_M14_TW</defName>
+        <label>M14</label>
+        <description>The select-fire post-war middle-child American battle rifle.</description>
+        <graphicData>
+            <texPath>Things/WeaponRanged/BoltActionRifle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Interact_Rifle</soundInteract>
+        <recipeMaker>
+                <recipeUsers>
+                    <li>TableMachining</li>
+                </recipeUsers>
+            <researchPrerequisite>Gunsmithing</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>10</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <statBases>
+            <WorkToMake>2000</WorkToMake>
+            <Mass>10</Mass>
+            <AccuracyTouch>0.90</AccuracyTouch>
+            <AccuracyShort>0.87</AccuracyShort>
+            <AccuracyMedium>0.81</AccuracyMedium>
+            <AccuracyLong>0.7</AccuracyLong>
+            <RangedWeapon_Cooldown>0.15</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+            <Steel>50</Steel>
+        </costList>
+        <verbs>
+            <li>
+                <verbClass>TotalWar.Verb_ShootTW</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>TW_Bullet_M14_TW</defaultProjectile>
+                <warmupTime>0.15</warmupTime>
+                <range>40</range>
+                <soundCast>Shot_BoltActionRifle</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>10</muzzleFlashScale>
+            </li>
+        </verbs>
+        <weaponTags>
+            <!-- <li>SimpleGun</li> -->
+        </weaponTags>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>7</power>
+                <cooldownTime>3</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>4</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <comps>
+            <li Class="TotalWar.ThingComp_ReliabilityProperties">
+                <weaponFailureFixTime>2.8</weaponFailureFixTime>
+                <weaponSuccessChance>0.95</weaponSuccessChance>
+            </li>
+            <li Class="TotalWar.ThingComp_SelectFireProperties">
+            </li>
+        </comps>
+    </ThingDef>
+</Defs>
