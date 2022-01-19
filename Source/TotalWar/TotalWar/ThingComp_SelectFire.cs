@@ -29,5 +29,11 @@ namespace TotalWar
         public float semi => Props.semi;
         public int burstShots => Props.burstShots;
         public int ticksBetweenShots => Props.ticksBetweenShots;
+        public float burstPenalty => Props.burstPenalty;
+        public float autoPenalty => Props.autoPenalty;
+        public int currentMode = 2;
+        //Stores default warmup time for the weapon so it can
+        //revert back after changing fire modes.
+        public float warmupTime = 0f;
     }
 }

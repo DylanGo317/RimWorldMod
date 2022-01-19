@@ -14,9 +14,9 @@ namespace TotalWar
         // Default > 25 tiles
         public int mediumToLong = 0;
         // Default < 25 Tiles
-        public int shortToMedium = 0;
+        public int shortToMedium = 1;
         // Default < 12 tiles
-        public int touchToShort = 1;
+        public int touchToShort = 2;
         // Defualt < 3 tiles
         public int zeroToTouch = 2;
 
@@ -34,6 +34,12 @@ namespace TotalWar
         //Time between shots whether semi or burst is the same
         public int burstShots = 3;
         public int ticksBetweenShots = 60;
+
+        //Accuracy penalty for different select fire
+        //Decreases chances for not missing and not hitting cover
+        //by the given percentage
+        public float burstPenalty = 0.1f;
+        public float autoPenalty = 0.6f;
 
         public ThingComp_SelectFireProperties()
         {

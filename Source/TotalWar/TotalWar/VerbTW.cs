@@ -23,10 +23,12 @@ namespace TotalWar
                 if (selectFireProps != null)
                 { 
                     //The float value of distance to the target squared
+                    if (selectFire.warmupTime == 0f)
+                    {
+                        selectFire.warmupTime = verbProps.warmupTime;
+                    }
                     float shotDistanceSquared = ((float)this.CasterPawn.Position.DistanceToSquared(CurrentTarget.Cell));
-                    Log.Message((selectFireProps.shortRange * selectFireProps.shortRange).ToString());
-                    Log.Message(shotDistanceSquared.ToString());
-                    int fireMode = 0;
+                    int fireMode = 2;
                     if (shotDistanceSquared > selectFireProps.longRange * selectFireProps.longRange)
                     {
                         fireMode = selectFireProps.longToVeryLong;
@@ -43,7 +45,7 @@ namespace TotalWar
                     {
                         fireMode = selectFireProps.zeroToTouch;
                     }
-                    if (fireMode == 2)
+                    if (fireMode == 0)
                     {
                         this.burstShotsLeft = 1;
                         verbProps.warmupTime = selectFireProps.ticksBetweenShots.TicksToSeconds();
@@ -53,7 +55,11 @@ namespace TotalWar
                         this.burstShotsLeft = 3;
                         verbProps.warmupTime = selectFireProps.ticksBetweenShots.TicksToSeconds();
                     }
-                    Log.Message(burstShotsLeft.ToString());
+                    else
+                    {
+                        verbProps.warmupTime = selectFire.warmupTime;
+                    }
+                    selectFire.currentMode = fireMode;
                     this.state = VerbState.Bursting;
                     this.TryCastNextBurstShot();
                 } else

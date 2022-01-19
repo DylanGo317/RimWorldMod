@@ -124,6 +124,28 @@ namespace TotalWar
             }
             //This appears to be where miss chance is calculated
             ShotReport shotReport = ShotReport.HitReportFor(this.caster, this, this.currentTarget);
+            //Values for chance to miss or hit cover that will not change the weapon
+            //does not have the select fire feature
+            float newAimOnTarget = shotReport.AimOnTargetChance_IgnoringPosture;
+            float newPassCoverChance = shotReport.PassCoverChance;
+            ThingComp_SelectFire selectFire = equipment.TryGetComp<ThingComp_SelectFire>();
+            if (selectFire != null)
+            {
+                ThingComp_SelectFireProperties selectFireProps =
+                    (ThingComp_SelectFireProperties)equipment.TryGetComp<ThingComp_SelectFire>().props;
+                if (selectFireProps != null)
+                {
+                    if (selectFire.currentMode == 2)
+                    {
+                        newAimOnTarget += (1f - newAimOnTarget) * selectFireProps.autoPenalty;
+                        newPassCoverChance += (1f - newPassCoverChance) * selectFireProps.autoPenalty;
+                    } else if (selectFire.currentMode == 1)
+                    {
+                        newAimOnTarget += (1f - newAimOnTarget) * selectFireProps.burstPenalty;
+                        newAimOnTarget += (1f - newAimOnTarget) * selectFireProps.burstPenalty;
+                    }
+                }
+            }
             Thing randomCoverToMissInto = shotReport.GetRandomCoverToMissInto();
             ThingDef targetCoverDef = (randomCoverToMissInto != null) ? randomCoverToMissInto.def : null;
             if (!Rand.Chance(shotReport.AimOnTargetChance_IgnoringPosture))
@@ -139,7 +161,7 @@ namespace TotalWar
                 projectile2.Launch(thing, drawPos, shootLine.Dest, this.currentTarget, projectileHitFlags2, this.preventFriendlyFire, equipment, targetCoverDef);
                 return true;
             }
-            //Probably chance to hit cover
+            //Chance to hit cover
             if (this.currentTarget.Thing != null && this.currentTarget.Thing.def.category == ThingCategory.Pawn && !Rand.Chance(shotReport.PassCoverChance))
             {
                 this.ThrowDebugText("ToCover" + (this.canHitNonTargetPawnsNow ? "\nchntp" : ""));
