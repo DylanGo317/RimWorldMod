@@ -137,18 +137,26 @@ namespace TotalWar
                 {
                     if (selectFire.currentMode == 2)
                     {
-                        newAimOnTarget += (1f - newAimOnTarget) * selectFireProps.autoPenalty;
-                        newPassCoverChance += (1f - newPassCoverChance) * selectFireProps.autoPenalty;
+                        Log.Message(newAimOnTarget.ToString());
+                        newAimOnTarget -= newAimOnTarget * selectFireProps.autoPenalty;
+                        Log.Message(newAimOnTarget.ToString());
+                        Log.Message(newPassCoverChance.ToString());
+                        newPassCoverChance -= newPassCoverChance * selectFireProps.autoPenalty;
+                        Log.Message(newPassCoverChance.ToString());
                     } else if (selectFire.currentMode == 1)
                     {
-                        newAimOnTarget += (1f - newAimOnTarget) * selectFireProps.burstPenalty;
-                        newAimOnTarget += (1f - newAimOnTarget) * selectFireProps.burstPenalty;
+                        Log.Message(newAimOnTarget.ToString());
+                        newAimOnTarget -= newAimOnTarget * selectFireProps.burstPenalty;
+                        Log.Message(newAimOnTarget.ToString());
+                        Log.Message(newPassCoverChance.ToString());
+                        newPassCoverChance -= newPassCoverChance * selectFireProps.burstPenalty;
+                        Log.Message(newPassCoverChance.ToString());
                     }
                 }
             }
             Thing randomCoverToMissInto = shotReport.GetRandomCoverToMissInto();
             ThingDef targetCoverDef = (randomCoverToMissInto != null) ? randomCoverToMissInto.def : null;
-            if (!Rand.Chance(shotReport.AimOnTargetChance_IgnoringPosture))
+            if (!Rand.Chance(newAimOnTarget))
             {
                 shootLine.ChangeDestToMissWild(shotReport.AimOnTargetChance_StandardTarget);
                 this.ThrowDebugText("ToWild" + (this.canHitNonTargetPawnsNow ? "\nchntp" : ""));
@@ -162,7 +170,7 @@ namespace TotalWar
                 return true;
             }
             //Chance to hit cover
-            if (this.currentTarget.Thing != null && this.currentTarget.Thing.def.category == ThingCategory.Pawn && !Rand.Chance(shotReport.PassCoverChance))
+            if (this.currentTarget.Thing != null && this.currentTarget.Thing.def.category == ThingCategory.Pawn && !Rand.Chance(newPassCoverChance))
             {
                 this.ThrowDebugText("ToCover" + (this.canHitNonTargetPawnsNow ? "\nchntp" : ""));
                 this.ThrowDebugText("Cover\nDest", randomCoverToMissInto.Position);

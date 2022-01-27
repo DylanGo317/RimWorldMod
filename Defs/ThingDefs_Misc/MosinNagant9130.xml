@@ -14,12 +14,7 @@
             <damageAmountBase>20</damageAmountBase>
             <speed>80</speed>
         </projectile>
-        <thingClass>TotalWar.Projectile_IncendiaryBullet</thingClass>
-        <modExtensions>
-            <li Class="TotalWar.ModExtension_IncendiaryBullet">
-                <addBurnChance>0.9</addBurnChance>
-            </li>
-        </modExtensions>
+        <thingClass>Bullet</thingClass>
     </ThingDef>
 
 <!-- Mosin nagant 91/30 -->
@@ -38,12 +33,12 @@
                 </recipeUsers>
             <researchPrerequisite>Gunsmithing</researchPrerequisite>
             <skillRequirements>
-                <Crafting>3</Crafting>
+                <Crafting>8</Crafting>
             </skillRequirements>
         </recipeMaker>
         <statBases>
             <WorkToMake>1000</WorkToMake>
-            <Mass>5</Mass>
+            <Mass>11</Mass>
             <AccuracyTouch>0.95</AccuracyTouch>
             <AccuracyShort>0.9</AccuracyShort>
             <AccuracyMedium>0.75</AccuracyMedium>
