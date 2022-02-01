@@ -87,6 +87,10 @@
                 <weaponSuccessChance>0.98</weaponSuccessChance>
             </li>
             <li Class="TotalWar.ThingComp_SelectFireProperties">
+                <burstShots>3</burstShots>
+                <ticksBetweenShots>45</ticksBetweenShots>
+                <burstPenalty>0.15</burstPenalty>
+                <autoPenalty>0.55</autoPenalty>
             </li>
         </comps>
     </ThingDef>

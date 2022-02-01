@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Verse;
+using RimWorld;
 
 namespace TotalWar
 {
@@ -15,6 +16,18 @@ namespace TotalWar
         public ThingComp_ReliabilityProperties()
         {
             this.compClass = typeof(ThingComp_Reliability);
+        }
+
+        //Adds entries into the description for the values of the new weapon settings
+        public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
+        {
+            foreach (StatDrawEntry statDrawEntry in base.SpecialDisplayStats(req))
+            {
+                yield return statDrawEntry;
+            }
+            IEnumerator<StatDrawEntry> enumerator = null;
+            yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Time to fix weapon failure", weaponFailureFixTime.ToString() + " s", null, 9999, null, null, false);
+            yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Weapon reliability", (weaponSuccessChance * 100).ToString() + "%", null, 9998, null, null, false);
         }
     }
 }

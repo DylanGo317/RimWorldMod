@@ -24,9 +24,6 @@ namespace TotalWar
         public int mediumRange => Props.mediumRange;
         public int shortRange => Props.shortRange;
         public int touchRange => Props.touchRange;
-        public float auto => Props.auto;
-        public float burst => Props.burst;
-        public float semi => Props.semi;
         public int burstShots => Props.burstShots;
         public int ticksBetweenShots => Props.ticksBetweenShots;
         public float burstPenalty => Props.burstPenalty;

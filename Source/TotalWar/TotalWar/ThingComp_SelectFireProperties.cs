@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RimWorld;
 using Verse;
 
 namespace TotalWar
@@ -26,11 +27,6 @@ namespace TotalWar
         public int shortRange = 12;
         public int touchRange = 3;
 
-        //Sets weapon accuracy multiplier
-        public float auto = 0.5f;
-        public float burst = 0.8f;
-        public float semi = 1f;
-
         //Time between shots whether semi or burst is the same
         public int burstShots = 3;
         public int ticksBetweenShots = 60;
@@ -44,6 +40,20 @@ namespace TotalWar
         public ThingComp_SelectFireProperties()
         {
             this.compClass = typeof(ThingComp_SelectFire);
+        }
+
+        //Adds entries into the description for the values of the new weapon settings
+        public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
+        {
+            foreach (StatDrawEntry statDrawEntry in base.SpecialDisplayStats(req))
+            {
+                yield return statDrawEntry;
+            }
+            IEnumerator<StatDrawEntry> enumerator = null;
+            yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Number of Burst Shots", burstShots.ToString(), null, 10000, null, null, false);
+            yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Aim Readjustment Time", ((float)ticksBetweenShots / 60f).ToString() + " s", null, 10001, null, null, false);
+            yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Burst Penalty", "-" + (burstPenalty * 100).ToString() + "%", null, 10002, null, null, false);
+            yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Auto Penalty", "-" + (autoPenalty * 100).ToString() + "%", null, 10003, null, null, false);
         }
     }
 }

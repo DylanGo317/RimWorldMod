@@ -137,20 +137,12 @@ namespace TotalWar
                 {
                     if (selectFire.currentMode == 2)
                     {
-                        Log.Message(newAimOnTarget.ToString());
                         newAimOnTarget -= newAimOnTarget * selectFireProps.autoPenalty;
-                        Log.Message(newAimOnTarget.ToString());
-                        Log.Message(newPassCoverChance.ToString());
                         newPassCoverChance -= newPassCoverChance * selectFireProps.autoPenalty;
-                        Log.Message(newPassCoverChance.ToString());
                     } else if (selectFire.currentMode == 1)
                     {
-                        Log.Message(newAimOnTarget.ToString());
                         newAimOnTarget -= newAimOnTarget * selectFireProps.burstPenalty;
-                        Log.Message(newAimOnTarget.ToString());
-                        Log.Message(newPassCoverChance.ToString());
                         newPassCoverChance -= newPassCoverChance * selectFireProps.burstPenalty;
-                        Log.Message(newPassCoverChance.ToString());
                     }
                 }
             }

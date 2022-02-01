@@ -20,7 +20,8 @@
     <ThingDef ParentName="BaseHumanMakeableGun">
         <defName>TW_M14_TW</defName>
         <label>M14</label>
-        <description>The select-fire post-war middle-child American battle rifle.</description>
+        <description>The select-fire post-war middle-child American battle rifle. 
+        Extremely inaccurate but extremely deadly on automatic fire.</description>
         <graphicData>
             <texPath>Things/WeaponRanged/BoltActionRifle</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -87,6 +88,16 @@
                 <weaponSuccessChance>0.95</weaponSuccessChance>
             </li>
             <li Class="TotalWar.ThingComp_SelectFireProperties">
+                <burstShots>1</burstShots>
+                <ticksBetweenShots>45</ticksBetweenShots>
+                <burstPenalty>0.15</burstPenalty>
+                <autoPenalty>0.75</autoPenalty>
+                <longToVeryLong>0</longToVeryLong>
+                <mediumToLong>0</mediumToLong>
+                <shortToMedium>0</shortToMedium>
+                <touchToShort>1</touchToShort>
+                <zeroToTouch>2</touchToShort>
+                <touchRange>6</touchRange>
             </li>
         </comps>
     </ThingDef>
