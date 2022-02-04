@@ -22,28 +22,35 @@ namespace TotalWar
                     (ThingComp_SelectFireProperties)equipment.TryGetComp<ThingComp_SelectFire>().props;
                 if (selectFireProps != null)
                 { 
-                    //The float value of distance to the target squared
                     if (selectFire.warmupTime == 0f)
                     {
                         selectFire.warmupTime = verbProps.warmupTime;
                     }
+                    //The float value of distance to the target squared
                     float shotDistanceSquared = ((float)this.CasterPawn.Position.DistanceToSquared(CurrentTarget.Cell));
-                    int fireMode = 2;
-                    if (shotDistanceSquared > selectFireProps.longRange * selectFireProps.longRange)
+                    int fireMode = selectFire.currentMode;
+                    if (!selectFire.forceMode)
                     {
-                        fireMode = selectFireProps.longToVeryLong;
-                    } else if (shotDistanceSquared > selectFireProps.mediumRange * selectFireProps.mediumRange)
-                    {
-                        fireMode = selectFireProps.mediumToLong;
-                    } else if (shotDistanceSquared > selectFireProps.shortRange * selectFireProps.shortRange)
-                    {
-                        fireMode = selectFireProps.shortToMedium;
-                    } else if (shotDistanceSquared > selectFireProps.touchRange * selectFireProps.touchRange)
-                    {
-                        fireMode = selectFireProps.touchToShort;
-                    } else
-                    {
-                        fireMode = selectFireProps.zeroToTouch;
+                        if (shotDistanceSquared > selectFireProps.longRange * selectFireProps.longRange)
+                        {
+                            fireMode = selectFireProps.longToVeryLong;
+                        }
+                        else if (shotDistanceSquared > selectFireProps.mediumRange * selectFireProps.mediumRange)
+                        {
+                            fireMode = selectFireProps.mediumToLong;
+                        }
+                        else if (shotDistanceSquared > selectFireProps.shortRange * selectFireProps.shortRange)
+                        {
+                            fireMode = selectFireProps.shortToMedium;
+                        }
+                        else if (shotDistanceSquared > selectFireProps.touchRange * selectFireProps.touchRange)
+                        {
+                            fireMode = selectFireProps.touchToShort;
+                        }
+                        else
+                        {
+                            fireMode = selectFireProps.zeroToTouch;
+                        }
                     }
                     if (fireMode == 0)
                     {

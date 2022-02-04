@@ -96,7 +96,7 @@
                 <mediumToLong>0</mediumToLong>
                 <shortToMedium>0</shortToMedium>
                 <touchToShort>1</touchToShort>
-                <zeroToTouch>2</touchToShort>
+                <zeroToTouch>2</zeroToTouch>
                 <touchRange>6</touchRange>
             </li>
         </comps>

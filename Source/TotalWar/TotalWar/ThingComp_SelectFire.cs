@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace TotalWar
             base.Initialize(props);
         }
 
+
         public ThingComp_SelectFireProperties Props => (ThingComp_SelectFireProperties)this.props;
         public int longToVeryLong => Props.longToVeryLong;
         public int mediumToLong => Props.mediumToLong;
@@ -28,6 +30,7 @@ namespace TotalWar
         public int ticksBetweenShots => Props.ticksBetweenShots;
         public float burstPenalty => Props.burstPenalty;
         public float autoPenalty => Props.autoPenalty;
+        public bool forceMode = false;
         public int currentMode = 2;
         //Stores default warmup time for the weapon so it can
         //revert back after changing fire modes.

@@ -25,9 +25,9 @@ namespace TotalWar
             {
                 yield return statDrawEntry;
             }
-            IEnumerator<StatDrawEntry> enumerator = null;
             yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Time to fix weapon failure", weaponFailureFixTime.ToString() + " s", null, 9999, null, null, false);
             yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Weapon reliability", (weaponSuccessChance * 100).ToString() + "%", null, 9998, null, null, false);
+            yield break;
         }
     }
 }

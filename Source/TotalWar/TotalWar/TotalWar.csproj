@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HarmonyBase.cs" />
+    <Compile Include="SelectFireGizmoHarmonyPatch.cs" />
     <Compile Include="ThingComp_Reliability.cs" />
     <Compile Include="ThingComp_ReliabilityProperties.cs" />
     <Compile Include="ThingComp_SelectFire.cs" />
