@@ -24,11 +24,11 @@ namespace TotalWar
                 ThingComp_SelectFire selectFire = __instance.equipment.Primary.TryGetComp<ThingComp_SelectFire>();
                 if (selectFire != null)
                 { 
-                    Command_Toggle commandToggle = new Command_Toggle();
-                    commandToggle.icon = TexCommand.ForbidOff;
-                    commandToggle.isActive = (() => selectFire.forceMode);
-                    commandToggle.activateIfAmbiguous = false;
-                    commandToggle.toggleAction = delegate ()
+                    Command_Toggle selectFireToggle = new Command_Toggle();
+                    selectFireToggle.icon = TexCommand.ForbidOff;
+                    selectFireToggle.isActive = (() => selectFire.forceMode);
+                    selectFireToggle.activateIfAmbiguous = false;
+                    selectFireToggle.toggleAction = delegate ()
                     {
                         if (!selectFire.forceMode)
                         {
@@ -49,7 +49,7 @@ namespace TotalWar
                         }
                     
                     };
-                    yield return commandToggle;
+                    yield return selectFireToggle;
                 }
             }
         }

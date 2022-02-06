@@ -64,6 +64,7 @@ namespace TotalWar
                     }
                     else
                     {
+                        this.burstShotsLeft = 1;
                         verbProps.warmupTime = selectFire.warmupTime;
                     }
                     selectFire.currentMode = fireMode;

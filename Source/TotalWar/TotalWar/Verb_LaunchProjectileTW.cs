@@ -81,7 +81,6 @@ namespace TotalWar
             }
             this.lastShotTick = Find.TickManager.TicksGame;
             Thing thing = this.caster;
-            //Defined this earlier Thing equipment = base.EquipmentSource;
             CompMannable compMannable = this.caster.TryGetComp<CompMannable>();
             if (compMannable != null && compMannable.ManningPawn != null)
             {
