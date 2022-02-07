@@ -1,28 +1,28 @@
 <?xml version ="1.0" encoding="utf-8" ?>
 <Defs>
-<!-- M16 Projectile-->
+<!-- M14 Projectile-->
     <ThingDef ParentName="BaseBullet">
-        <defName>TW_Bullet_M16_TW</defName>
-        <label>M16 Bullet</label>
+        <defName>TW_Bullet_Henry4570_TW</defName>
+        <label>Henry 4570 Bullet</label>
         <graphicData>
             <texPath>Things/Projectile/Bullet_Small</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
             <damageDef>Bullet</damageDef>
-            <damageAmountBase>18</damageAmountBase>
-            <speed>70</speed>
+            <damageAmountBase>35</damageAmountBase>
+            <speed>72</speed>
         </projectile>
         <thingClass>Bullet</thingClass>
     </ThingDef>
 
 <!-- M16 -->
     <ThingDef ParentName="BaseHumanMakeableGun">
-        <defName>TW_M16_TW</defName>
-        <label>M16</label>
-        <description>A fully-automatic Vietnam-era American classic.</description>
+        <defName>TW_Henry4570_TW</defName>
+        <label>Henry 45-70 Lever Action</label>
+        <description>A time-tested, classically-styled, lever-action rifle in .45 caliber. Try your best to not get shot with this.</description>
         <graphicData>
-            <texPath>Things/WeaponRanged/AssaultRifle</texPath>
+            <texPath>Things/WeaponRanged/BoltActionRifle</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <soundInteract>Interact_Rifle</soundInteract>
@@ -32,30 +32,31 @@
                 </recipeUsers>
             <researchPrerequisite>Gunsmithing</researchPrerequisite>
             <skillRequirements>
-                <Crafting>15</Crafting>
+                <Crafting>12</Crafting>
             </skillRequirements>
         </recipeMaker>
         <statBases>
             <WorkToMake>85000</WorkToMake>
-            <Mass>4</Mass>
+            <Mass>5</Mass>
             <AccuracyTouch>0.96</AccuracyTouch>
-            <AccuracyShort>0.93</AccuracyShort>
+            <AccuracyShort>0.90</AccuracyShort>
             <AccuracyMedium>0.85</AccuracyMedium>
-            <AccuracyLong>0.6</AccuracyLong>
-            <RangedWeapon_Cooldown>0.1</RangedWeapon_Cooldown>
+            <AccuracyLong>0.77</AccuracyLong>
+            <RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
         </statBases>
         <costList>
             <Steel>600</Steel>
-            <ComponentIndustrial>30</ComponentIndustrial>
+            <WoodLog>200</WoodLog>
+            <ComponentIndustrial>25</ComponentIndustrial>
         </costList>
         <verbs>
             <li>
                 <verbClass>TotalWar.Verb_ShootTW</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>TW_Bullet_M16_TW</defaultProjectile>
-                <warmupTime>0.1</warmupTime>
-                <range>35</range>
-                <soundCast>Shot_AssaultRifle</soundCast>
+                <defaultProjectile>TW_Bullet_Henry4570_TW</defaultProjectile>
+                <warmupTime>0.15</warmupTime>
+                <range>40</range>
+                <soundCast>Shot_BoltActionRifle</soundCast>
                 <soundCastTail>GunTail_Medium</soundCastTail>
                 <muzzleFlashScale>10</muzzleFlashScale>
             </li>
@@ -78,20 +79,14 @@
                     <li>Blunt</li>
                     <li>Poke</li>
                 </capacities>
-                <power>4</power>
+                <power>5</power>
                 <cooldownTime>2</cooldownTime>
             </li>
         </tools>
         <comps>
             <li Class="TotalWar.ThingComp_ReliabilityProperties">
-                <weaponFailureFixTime>2.0</weaponFailureFixTime>
-                <weaponSuccessChance>0.985</weaponSuccessChance>
-            </li>
-            <li Class="TotalWar.ThingComp_SelectFireProperties">
-                <burstShots>3</burstShots>
-                <ticksBetweenShots>45</ticksBetweenShots>
-                <burstPenalty>0.15</burstPenalty>
-                <autoPenalty>0.55</autoPenalty>
+                <weaponFailureFixTime>1.0</weaponFailureFixTime>
+                <weaponSuccessChance>0.995</weaponSuccessChance>
             </li>
         </comps>
     </ThingDef>

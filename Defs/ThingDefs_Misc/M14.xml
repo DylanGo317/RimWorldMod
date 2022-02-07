@@ -33,7 +33,7 @@
                 </recipeUsers>
             <researchPrerequisite>Gunsmithing</researchPrerequisite>
             <skillRequirements>
-                <Crafting>10</Crafting>
+                <Crafting>14</Crafting>
             </skillRequirements>
         </recipeMaker>
         <statBases>
