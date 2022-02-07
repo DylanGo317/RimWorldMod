@@ -10,7 +10,7 @@
         </graphicData>
         <projectile>
             <damageDef>Bullet</damageDef>
-            <damageAmountBase>18</damageAmountBase>
+            <damageAmountBase>22</damageAmountBase>
             <speed>76</speed>
         </projectile>
         <thingClass>Bullet</thingClass>
@@ -37,8 +37,8 @@
             </skillRequirements>
         </recipeMaker>
         <statBases>
-            <WorkToMake>2000</WorkToMake>
-            <Mass>10</Mass>
+            <WorkToMake>75000</WorkToMake>
+            <Mass>5</Mass>
             <AccuracyTouch>0.90</AccuracyTouch>
             <AccuracyShort>0.87</AccuracyShort>
             <AccuracyMedium>0.81</AccuracyMedium>
@@ -46,7 +46,7 @@
             <RangedWeapon_Cooldown>0.15</RangedWeapon_Cooldown>
         </statBases>
         <costList>
-            <Steel>50</Steel>
+            <Steel>350</Steel>
         </costList>
         <verbs>
             <li>
@@ -69,7 +69,7 @@
                 <capacities>
                     <li>Blunt</li>
                 </capacities>
-                <power>7</power>
+                <power>9</power>
                 <cooldownTime>3</cooldownTime>
             </li>
             <li>
@@ -78,7 +78,7 @@
                     <li>Blunt</li>
                     <li>Poke</li>
                 </capacities>
-                <power>4</power>
+                <power>7</power>
                 <cooldownTime>2</cooldownTime>
             </li>
         </tools>

@@ -25,9 +25,13 @@ namespace TotalWar
                 if (selectFire != null)
                 { 
                     Command_Toggle selectFireToggle = new Command_Toggle();
-                    selectFireToggle.icon = TexCommand.ForbidOff;
+                    selectFireToggle.icon = TexCommand.SquadAttack;
                     selectFireToggle.isActive = (() => selectFire.forceMode);
                     selectFireToggle.activateIfAmbiguous = false;
+                    //Layered ternary operators appear to be necessary to get the text to change
+                    selectFireToggle.defaultLabel = !selectFire.forceMode ? "Auto Select Fire" : (selectFire.currentMode == 0 ? "Semi-Automatic" : 
+                        (selectFire.currentMode == 1 ? "Burst Fire" : "Automatic Fire"));
+                    selectFireToggle.defaultDesc = "Selection for firing mode";
                     selectFireToggle.toggleAction = delegate ()
                     {
                         if (!selectFire.forceMode)

@@ -49,7 +49,6 @@ namespace TotalWar
             {
                 yield return statDrawEntry;
             }
-            IEnumerator<StatDrawEntry> enumerator = null;
             yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Number of Burst Shots", burstShots.ToString(), null, 10000, null, null, false);
             yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Aim Readjustment Time", ((float)ticksBetweenShots / 60f).ToString() + " s", null, 10001, null, null, false);
             yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Burst Penalty", "-" + (burstPenalty * 100).ToString() + "%", null, 10002, null, null, false);
