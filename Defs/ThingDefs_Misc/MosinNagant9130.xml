@@ -37,7 +37,7 @@
             </skillRequirements>
         </recipeMaker>
         <statBases>
-            <WorkToMake>65000</WorkToMake>
+            <WorkToMake>75000</WorkToMake>
             <Mass>5</Mass>
             <AccuracyTouch>0.95</AccuracyTouch>
             <AccuracyShort>0.9</AccuracyShort>
@@ -46,7 +46,9 @@
             <RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
         </statBases>
         <costList>
-            <Steel>300</Steel>
+            <Steel>400</Steel>
+            <WoodLog>200</WoodLog>
+            <ComponentIndustrial>22</ComponentIndustrial>
         </costList>
         <verbs>
             <li>
