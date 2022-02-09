@@ -1,27 +1,27 @@
 <?xml version ="1.0" encoding="utf-8" ?>
 <Defs>
 
-<!-- Mosin Nagant 91/30 Projectile-->
+<!-- Brown Bess Projectile-->
     <ThingDef ParentName="BaseBullet">
-        <defName>TW_Bullet_MosinNagant9130_TW</defName>
-        <label>mosin nagant bullet</label>
+        <defName>TW_Bullet_BrownBessB_TW</defName>
+        <label>brown bess bullet</label>
         <graphicData>
             <texPath>Things/Projectile/Bullet_Small</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
             <damageDef>Bullet</damageDef>
-            <damageAmountBase>25</damageAmountBase>
-            <speed>80</speed>
+            <damageAmountBase>20</damageAmountBase>
+            <speed>50</speed>
         </projectile>
         <thingClass>Bullet</thingClass>
     </ThingDef>
 
-<!-- Mosin nagant 91/30 -->
+<!-- Brown Bess -->
     <ThingDef ParentName="BaseHumanMakeableGun">
-        <defName>TW_Gun_MosinNagant9130_TW</defName>
-        <label>Mosin Nagant 91/30</label>
-        <description>Bolt-action rifle firing 7.62x54mmR ammunition.</description>
+        <defName>TW_Gun_BrownBessB_TW</defName>
+        <label>Bayoneted Brow Bess</label>
+        <description>British musket with bayonet shooting a .75 caliber lead ball. Very slow to shoot but has considerable melee potential. Good for firing an initial volley and then charging.</description>
         <graphicData>
             <texPath>Things/WeaponRanged/BoltActionRifle</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -29,33 +29,34 @@
         <soundInteract>Interact_Rifle</soundInteract>
         <recipeMaker>
                 <recipeUsers>
+                    <li>FueledSmithy</li>
                     <li>TableMachining</li>
+                    <li>ElectricSmithy</li>
                 </recipeUsers>
-            <researchPrerequisite>Gunsmithing</researchPrerequisite>
+            <researchPrerequisite>Smithing</researchPrerequisite>
             <skillRequirements>
-                <Crafting>10</Crafting>
+                <Crafting>3</Crafting>
             </skillRequirements>
         </recipeMaker>
         <statBases>
-            <WorkToMake>75000</WorkToMake>
+            <WorkToMake>25000</WorkToMake>
             <Mass>5</Mass>
-            <AccuracyTouch>0.95</AccuracyTouch>
-            <AccuracyShort>0.9</AccuracyShort>
-            <AccuracyMedium>0.75</AccuracyMedium>
-            <AccuracyLong>0.5</AccuracyLong>
-            <RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+            <AccuracyTouch>0.9</AccuracyTouch>
+            <AccuracyShort>0.85</AccuracyShort>
+            <AccuracyMedium>0.6</AccuracyMedium>
+            <AccuracyLong>0.3</AccuracyLong>
+            <RangedWeapon_Cooldown>20</RangedWeapon_Cooldown>
         </statBases>
         <costList>
-            <Steel>400</Steel>
-            <WoodLog>200</WoodLog>
-            <ComponentIndustrial>22</ComponentIndustrial>
+            <Steel>200</Steel>
+            <WoodLog>100</WoodLog>
         </costList>
         <verbs>
             <li>
                 <verbClass>TotalWar.Verb_ShootTW</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>TW_Bullet_MosinNagant9130_TW</defaultProjectile>
-                <warmupTime>0.6</warmupTime>
+                <defaultProjectile>TW_Bullet_BrownBessB_TW</defaultProjectile>
+                <warmupTime>1</warmupTime>
                 <range>40</range>
                 <soundCast>Shot_BoltActionRifle</soundCast>
                 <soundCastTail>GunTail_Medium</soundCastTail>
@@ -67,27 +68,19 @@
         </weaponTags>
         <tools>
             <li>
-                <label>stock</label>
+                <label>bayonet</label>
                 <capacities>
-                    <li>Blunt</li>
+                    <li>Cut</li>
                 </capacities>
-                <power>12</power>
-                <cooldownTime>2</cooldownTime>
+                <power>15</power>
+                <cooldownTime>1.5</cooldownTime>
             </li>
-            <li>
-                <label>barrel</label>
-                <capacities>
-                    <li>Blunt</li>
-                    <li>Poke</li>
-                </capacities>
-                <power>9</power>
-                <cooldownTime>2</cooldownTime>
-            </li>
+
         </tools>
         <comps>
             <li Class="TotalWar.ThingComp_ReliabilityProperties">
-                <weaponFailureFixTime>4.0</weaponFailureFixTime>
-                <weaponSuccessChance>0.9</weaponSuccessChance>
+                <weaponFailureFixTime>2.0</weaponFailureFixTime>
+                <weaponSuccessChance>0.98</weaponSuccessChance>
             </li>
         </comps>
     </ThingDef>

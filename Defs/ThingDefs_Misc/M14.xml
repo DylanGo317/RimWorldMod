@@ -16,9 +16,9 @@
         <thingClass>Bullet</thingClass>
     </ThingDef>
 
-<!-- M16 -->
+<!-- M14 -->
     <ThingDef ParentName="BaseHumanMakeableGun">
-        <defName>TW_M14_TW</defName>
+        <defName>TW_Gun_M14_TW</defName>
         <label>M14</label>
         <description>The select-fire post-war middle-child American battle rifle. 
         Extremely inaccurate but extremely deadly on automatic fire.</description>
@@ -71,8 +71,8 @@
                 <capacities>
                     <li>Blunt</li>
                 </capacities>
-                <power>9</power>
-                <cooldownTime>3</cooldownTime>
+                <power>12</power>
+                <cooldownTime>2</cooldownTime>
             </li>
             <li>
                 <label>barrel</label>
@@ -80,7 +80,7 @@
                     <li>Blunt</li>
                     <li>Poke</li>
                 </capacities>
-                <power>7</power>
+                <power>10</power>
                 <cooldownTime>2</cooldownTime>
             </li>
         </tools>

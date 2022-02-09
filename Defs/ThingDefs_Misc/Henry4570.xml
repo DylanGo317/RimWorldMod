@@ -1,6 +1,6 @@
 <?xml version ="1.0" encoding="utf-8" ?>
 <Defs>
-<!-- M14 Projectile-->
+<!-- Henry 4570 Projectile-->
     <ThingDef ParentName="BaseBullet">
         <defName>TW_Bullet_Henry4570_TW</defName>
         <label>Henry 4570 Bullet</label>
@@ -16,9 +16,9 @@
         <thingClass>Bullet</thingClass>
     </ThingDef>
 
-<!-- M16 -->
+<!-- Henry 4570 -->
     <ThingDef ParentName="BaseHumanMakeableGun">
-        <defName>TW_Henry4570_TW</defName>
+        <defName>TW_Gun_Henry4570_TW</defName>
         <label>Henry 45-70 Lever Action</label>
         <description>A time-tested, classically-styled, lever-action rifle in .45 caliber. Try your best to not get shot with this.</description>
         <graphicData>
@@ -70,8 +70,8 @@
                 <capacities>
                     <li>Blunt</li>
                 </capacities>
-                <power>7</power>
-                <cooldownTime>3</cooldownTime>
+                <power>11</power>
+                <cooldownTime>2</cooldownTime>
             </li>
             <li>
                 <label>barrel</label>
@@ -79,7 +79,7 @@
                     <li>Blunt</li>
                     <li>Poke</li>
                 </capacities>
-                <power>5</power>
+                <power>9</power>
                 <cooldownTime>2</cooldownTime>
             </li>
         </tools>
