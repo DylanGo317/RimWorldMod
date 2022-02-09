@@ -23,7 +23,7 @@
         <description>The select-fire post-war middle-child American battle rifle. 
         Extremely inaccurate but extremely deadly on automatic fire.</description>
         <graphicData>
-            <texPath>Things/WeaponRanged/BoltActionRifle</texPath>
+            <texPath>Things/WeaponRanged/m14</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <soundInteract>Interact_Rifle</soundInteract>
