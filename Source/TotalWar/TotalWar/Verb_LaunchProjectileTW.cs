@@ -39,8 +39,12 @@ namespace TotalWar
                     {
                         return false;
                     }
-                    //Weapon does not shoot based on successChance
-                    float successChance = reliabilityProps.weaponSuccessChance;
+                    //Sets values for success chance when it has not yet been initialized
+                    if (reliability.weaponSuccess == 0f)
+                    {
+                        reliability.setReliability();
+                    }
+                    float successChance = reliability.weaponSuccess;
                     if (Rand.Value > successChance)
                     {
                         //Messages.Message("Weapon_Failure".Translate(), MessageTypeDefOf.NeutralEvent);

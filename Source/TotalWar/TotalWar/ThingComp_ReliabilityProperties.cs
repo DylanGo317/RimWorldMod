@@ -26,8 +26,7 @@ namespace TotalWar
                 yield return statDrawEntry;
             }
             yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Time to fix weapon failure", weaponFailureFixTime.ToString() + " s", null, 9999, null, null, false);
-            yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Weapon reliability", (weaponSuccessChance * 100).ToString() + "%", null, 9998, null, null, false);
-            yield break;
+            yield return new StatDrawEntry(StatCategoryDefOf.Weapon_Ranged, "Base Weapon reliability", (weaponSuccessChance * 100).ToString() + "%", null, 9998, null, null, false);
         }
     }
 }

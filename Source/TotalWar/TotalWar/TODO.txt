@@ -1,1 +1,1 @@
-﻿Will probably have to transpile into the pawn_draftController class in order to get the gizmo to appear when drafted as opposed to the weapon being on the ground.
+﻿

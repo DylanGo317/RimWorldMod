@@ -10,12 +10,6 @@ namespace TotalWar
 {
     class ThingComp_SelectFire : ThingComp
     {
-        public override void Initialize(CompProperties props)
-        {
-            base.Initialize(props);
-        }
-
-
         public ThingComp_SelectFireProperties Props => (ThingComp_SelectFireProperties)this.props;
         public int longToVeryLong => Props.longToVeryLong;
         public int mediumToLong => Props.mediumToLong;
@@ -35,5 +29,10 @@ namespace TotalWar
         //Stores default warmup time for the weapon so it can
         //revert back after changing fire modes.
         public float warmupTime = 0f;
+
+        public override void Initialize(CompProperties props)
+        {
+            base.Initialize(props);
+        }
     }
 }
