@@ -31,7 +31,7 @@
                 <recipeUsers>
                     <li>TableMachining</li>
                 </recipeUsers>
-            <researchPrerequisite>Gas operation</researchPrerequisite>
+            <researchPrerequisite>GasOperation</researchPrerequisite>
             <skillRequirements>
                 <Crafting>14</Crafting>
             </skillRequirements>

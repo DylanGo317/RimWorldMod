@@ -30,7 +30,7 @@
                 <recipeUsers>
                     <li>TableMachining</li>
                 </recipeUsers>
-            <researchPrerequisite>Precision rifling</researchPrerequisite>
+            <researchPrerequisite>PrecisionRifling</researchPrerequisite>
             <skillRequirements>
                 <Crafting>15</Crafting>
             </skillRequirements>
