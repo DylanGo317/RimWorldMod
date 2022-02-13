@@ -1,62 +1,62 @@
 <?xml version ="1.0" encoding="utf-8" ?>
 <Defs>
-<!-- Henry 4570 Projectile-->
+
+<!-- Single Action Army Projectile-->
     <ThingDef ParentName="BaseBullet">
-        <defName>TW_Bullet_Henry4570_TW</defName>
-        <label>Henry 4570 Bullet</label>
+        <defName>TW_Bullet_SAArmy_TW</defName>
+        <label>saarmy bullet</label>
         <graphicData>
             <texPath>Things/Projectile/Bullet_Small</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
             <damageDef>Bullet</damageDef>
-            <damageAmountBase>35</damageAmountBase>
-            <speed>72</speed>
+            <damageAmountBase>16</damageAmountBase>
+            <speed>60</speed>
         </projectile>
         <thingClass>Bullet</thingClass>
     </ThingDef>
 
-<!-- Henry 4570 -->
+<!-- Single Action Army -->
     <ThingDef ParentName="BaseHumanMakeableGun">
-        <defName>TW_Gun_Henry4570_TW</defName>
-        <label>Henry 45-70 Lever Action</label>
-        <description>A time-tested, classically-styled, lever-action rifle in .45 caliber. Try your best to not get shot with this.</description>
+        <defName>TW_Gun_SAArmy_TW</defName>
+        <label>Single Action Army Revolver</label>
+        <description>19th century revolver loaded in 45 long colt. Lower fire rate but higher power than most pistols.</description>
         <graphicData>
-            <texPath>Things/WeaponRanged/Henry4570LeverAction</texPath>
+            <texPath>Things/WeaponRanged/Revolver</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
-        <soundInteract>Interact_Rifle</soundInteract>
+        <soundInteract>Interact_Revolver</soundInteract>
         <recipeMaker>
                 <recipeUsers>
                     <li>TableMachining</li>
                 </recipeUsers>
             <researchPrerequisite>Gunsmithing</researchPrerequisite>
             <skillRequirements>
-                <Crafting>12</Crafting>
+                <Crafting>8</Crafting>
             </skillRequirements>
         </recipeMaker>
         <statBases>
-            <WorkToMake>85000</WorkToMake>
-            <Mass>5</Mass>
-            <AccuracyTouch>0.96</AccuracyTouch>
-            <AccuracyShort>0.90</AccuracyShort>
-            <AccuracyMedium>0.85</AccuracyMedium>
-            <AccuracyLong>0.77</AccuracyLong>
+            <WorkToMake>25000</WorkToMake>
+            <Mass>2</Mass>
+            <AccuracyTouch>0.99</AccuracyTouch>
+            <AccuracyShort>0.95</AccuracyShort>
+            <AccuracyMedium>0.8</AccuracyMedium>
+            <AccuracyLong>0.5</AccuracyLong>
             <RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
         </statBases>
         <costList>
-            <Steel>600</Steel>
-            <WoodLog>200</WoodLog>
-            <ComponentIndustrial>25</ComponentIndustrial>
+            <Steel>200</Steel>
+            <ComponentIndustrial>8</ComponentIndustrial>
         </costList>
         <verbs>
             <li>
                 <verbClass>TotalWar.Verb_ShootTW</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>TW_Bullet_Henry4570_TW</defaultProjectile>
-                <warmupTime>0.15</warmupTime>
-                <range>50</range>
-                <soundCast>Shot_BoltActionRifle</soundCast>
+                <defaultProjectile>TW_Bullet_SAArmy_TW</defaultProjectile>
+                <warmupTime>0.2</warmupTime>
+                <range>30</range>
+                <soundCast>Shot_Revolver</soundCast>
                 <soundCastTail>GunTail_Medium</soundCastTail>
                 <muzzleFlashScale>10</muzzleFlashScale>
             </li>
@@ -66,11 +66,11 @@
         </weaponTags>
         <tools>
             <li>
-                <label>stock</label>
+                <label>Grip</label>
                 <capacities>
                     <li>Blunt</li>
                 </capacities>
-                <power>11</power>
+                <power>9</power>
                 <cooldownTime>2</cooldownTime>
             </li>
             <li>
@@ -86,7 +86,7 @@
         <comps>
             <li Class="TotalWar.ThingComp_ReliabilityProperties">
                 <weaponFailureFixTime>1.0</weaponFailureFixTime>
-                <weaponSuccessChance>0.995</weaponSuccessChance>
+                <weaponSuccessChance>0.99</weaponSuccessChance>
             </li>
         </comps>
     </ThingDef>

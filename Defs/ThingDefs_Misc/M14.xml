@@ -31,7 +31,7 @@
                 <recipeUsers>
                     <li>TableMachining</li>
                 </recipeUsers>
-            <researchPrerequisite>Gunsmithing</researchPrerequisite>
+            <researchPrerequisite>Gas operation</researchPrerequisite>
             <skillRequirements>
                 <Crafting>14</Crafting>
             </skillRequirements>
@@ -56,7 +56,7 @@
                 <hasStandardCommand>true</hasStandardCommand>
                 <defaultProjectile>TW_Bullet_M14_TW</defaultProjectile>
                 <warmupTime>0.15</warmupTime>
-                <range>40</range>
+                <range>45</range>
                 <soundCast>Shot_BoltActionRifle</soundCast>
                 <soundCastTail>GunTail_Medium</soundCastTail>
                 <muzzleFlashScale>10</muzzleFlashScale>

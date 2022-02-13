@@ -30,7 +30,7 @@
                 <recipeUsers>
                     <li>TableMachining</li>
                 </recipeUsers>
-            <researchPrerequisite>Gunsmithing</researchPrerequisite>
+            <researchPrerequisite>Precision rifling</researchPrerequisite>
             <skillRequirements>
                 <Crafting>15</Crafting>
             </skillRequirements>
@@ -54,7 +54,7 @@
                 <hasStandardCommand>true</hasStandardCommand>
                 <defaultProjectile>TW_Bullet_M16_TW</defaultProjectile>
                 <warmupTime>0.1</warmupTime>
-                <range>35</range>
+                <range>40</range>
                 <soundCast>Shot_AssaultRifle</soundCast>
                 <soundCastTail>GunTail_Medium</soundCastTail>
                 <muzzleFlashScale>10</muzzleFlashScale>

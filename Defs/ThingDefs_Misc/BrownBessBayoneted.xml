@@ -23,7 +23,7 @@
         <label>Bayoneted Brow Bess</label>
         <description>British musket with bayonet shooting a .75 caliber lead ball. Very slow to shoot but has considerable melee potential. Good for firing an initial volley and then charging.</description>
         <graphicData>
-            <texPath>Things/WeaponRanged/BoltActionRifle</texPath>
+            <texPath>Things/WeaponRanged/BBMusket</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <soundInteract>Interact_Rifle</soundInteract>
