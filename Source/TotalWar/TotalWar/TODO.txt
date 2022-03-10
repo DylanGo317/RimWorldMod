@@ -1,1 +1,2 @@
-﻿
+﻿Figure out why the if condition in ThingComp_Training isnt working
+Resolve Hunting Bug

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace TotalWar
 {
@@ -17,11 +18,12 @@ namespace TotalWar
         {
             Thing equipment = base.EquipmentSource;
             ThingComp_SelectFire selectFire = equipment.TryGetComp<ThingComp_SelectFire>();
-            if (selectFire != null) {
+            if (selectFire != null)
+            {
                 ThingComp_SelectFireProperties selectFireProps =
                     (ThingComp_SelectFireProperties)equipment.TryGetComp<ThingComp_SelectFire>().props;
                 if (selectFireProps != null)
-                { 
+                {
                     if (selectFire.warmupTime == 0f)
                     {
                         selectFire.warmupTime = verbProps.warmupTime;
@@ -70,11 +72,13 @@ namespace TotalWar
                     selectFire.currentMode = fireMode;
                     this.state = VerbState.Bursting;
                     this.TryCastNextBurstShot();
-                } else
+                }
+                else
                 {
                     base.WarmupComplete();
                 }
-            } else
+            }
+            else
             {
                 base.WarmupComplete();
             }

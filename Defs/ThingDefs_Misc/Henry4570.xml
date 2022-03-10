@@ -62,8 +62,11 @@
             </li>
         </verbs>
         <weaponTags>
-            <!-- <li>SimpleGun</li> -->
+            <li>SimpleGun</li>
         </weaponTags>
+        <weaponClasses>
+            <li>RangedHeavy</li>
+        </weaponClasses>
         <tools>
             <li>
                 <label>stock</label>
@@ -88,6 +91,9 @@
                 <weaponFailureFixTime>1.0</weaponFailureFixTime>
                 <weaponSuccessChance>0.995</weaponSuccessChance>
             </li>
+            <li Class="TotalWar.ThingComp_TrainingProperties">
+            </li>
         </comps>
+        <tickerType>Normal</tickerType>
     </ThingDef>
 </Defs>

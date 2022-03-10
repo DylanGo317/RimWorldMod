@@ -25,6 +25,22 @@ namespace TotalWar
             //that tells whether or not the weapon can be fired
             //can be called before the projectile is checked
             Thing equipment = base.EquipmentSource;
+            ThingComp_Training training = equipment.TryGetComp<ThingComp_Training>();
+            if (training != null)
+            {
+                ThingComp_TrainingProperties trainingProps =
+                    (ThingComp_TrainingProperties)equipment.TryGetComp<ThingComp_Training>().props;
+                if (trainingProps != null)
+                {
+                    int currentTick = Find.TickManager.TicksGame;
+                    if (currentTick - training.lastShotTick < training.ticksToShoot)
+                    {
+                        return false;
+                    }
+                    training.pawnName = caster.Label;
+                    training.lastShotTick = currentTick;
+                }
+            }
             ThingComp_Reliability reliability = equipment.TryGetComp<ThingComp_Reliability>();
             //Checks that the equipment actually has the reliability comp
             if (reliability != null)
@@ -47,17 +63,10 @@ namespace TotalWar
                     float successChance = reliability.weaponSuccess;
                     if (Rand.Value > successChance)
                     {
-                        //Messages.Message("Weapon_Failure".Translate(), MessageTypeDefOf.NeutralEvent);
                         reliability.resetTickSinceLastShot();
                         return false;
                     }
-                } else
-                {
-                    //Log.Message("reliability Props null");
-                }
-            } else
-            {
-                //Log.Message("reliability null");
+                } 
             }
             ThingDef projectile = this.Projectile;
             if (projectile == null)

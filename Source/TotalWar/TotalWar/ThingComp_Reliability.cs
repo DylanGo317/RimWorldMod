@@ -10,7 +10,6 @@ namespace TotalWar
 {
     class ThingComp_Reliability : ThingComp
     {
-
         public bool canShoot = true;
         public ThingComp_ReliabilityProperties Props => (ThingComp_ReliabilityProperties)this.props;
         public float weaponFailureFixTime => Props.weaponFailureFixTime;

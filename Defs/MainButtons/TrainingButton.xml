@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <MainButtonDef>
+        <defName>Training</defName>
+        <label>training</label>
+        <description>Train colonists in advanced combat tactics.</description>
+        <tabWindowClass>MainTabWindow_Training</tabWindowClass>
+        <buttonVisible>true</buttonVisible>
+        <order>78</order>
+        <validWithoutMap>true</validWithoutMap>
+        <closesWorldView>true</closesWorldView>
+    </MainButtonDef>
+</Defs>

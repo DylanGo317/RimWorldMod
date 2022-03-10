@@ -1,28 +1,28 @@
 <?xml version ="1.0" encoding="utf-8" ?>
 <Defs>
-<!-- M16 Projectile-->
+<!-- M14 Projectile-->
     <ThingDef ParentName="BaseBullet">
-        <defName>TW_Bullet_M16_TW</defName>
-        <label>M16 Bullet</label>
+        <defName>TW_Bullet_AK12_TW</defName>
+        <label>AK12 Bullet</label>
         <graphicData>
             <texPath>Things/Projectile/Bullet_Small</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
             <damageDef>Bullet</damageDef>
-            <damageAmountBase>18</damageAmountBase>
-            <speed>70</speed>
+            <damageAmountBase>20</damageAmountBase>
+            <speed>68</speed>
         </projectile>
         <thingClass>Bullet</thingClass>
     </ThingDef>
 
-<!-- M16 -->
+<!-- M14 -->
     <ThingDef ParentName="BaseHumanMakeableGun">
-        <defName>TW_Gun_M16_TW</defName>
-        <label>M16</label>
-        <description>A fully-automatic Vietnam-era American classic.</description>
+        <defName>TW_Gun_AK12_TW</defName>
+        <label>AK12</label>
+        <description>A modern AK variant. Extremely reliable and fires a 7.62x39mm round, slightly more powerful than the NATO 5.56x45mm.</description>
         <graphicData>
-            <texPath>Things/WeaponRanged/AssaultRifle</texPath>
+            <texPath>Things/WeaponRanged/AK12</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <soundInteract>Interact_Rifle</soundInteract>
@@ -32,28 +32,28 @@
                 </recipeUsers>
             <researchPrerequisite>PrecisionRifling</researchPrerequisite>
             <skillRequirements>
-                <Crafting>15</Crafting>
+                <Crafting>16</Crafting>
             </skillRequirements>
         </recipeMaker>
         <statBases>
-            <WorkToMake>85000</WorkToMake>
-            <Mass>4</Mass>
-            <AccuracyTouch>0.96</AccuracyTouch>
-            <AccuracyShort>0.93</AccuracyShort>
-            <AccuracyMedium>0.85</AccuracyMedium>
-            <AccuracyLong>0.6</AccuracyLong>
-            <RangedWeapon_Cooldown>0.1</RangedWeapon_Cooldown>
+            <WorkToMake>90000</WorkToMake>
+            <Mass>5</Mass>
+            <AccuracyTouch>0.95</AccuracyTouch>
+            <AccuracyShort>0.90</AccuracyShort>
+            <AccuracyMedium>0.84</AccuracyMedium>
+            <AccuracyLong>0.65</AccuracyLong>
+            <RangedWeapon_Cooldown>0.11</RangedWeapon_Cooldown>
         </statBases>
         <costList>
             <Steel>600</Steel>
-            <ComponentIndustrial>30</ComponentIndustrial>
+            <ComponentIndustrial>35</ComponentIndustrial>
         </costList>
         <verbs>
             <li>
                 <verbClass>TotalWar.Verb_ShootTW</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>TW_Bullet_M16_TW</defaultProjectile>
-                <warmupTime>0.1</warmupTime>
+                <defaultProjectile>TW_Bullet_AK12_TW</defaultProjectile>
+                <warmupTime>0.15</warmupTime>
                 <range>40</range>
                 <soundCast>Shot_AssaultRifle</soundCast>
                 <soundCastTail>GunTail_Medium</soundCastTail>
@@ -87,14 +87,14 @@
         </tools>
         <comps>
             <li Class="TotalWar.ThingComp_ReliabilityProperties">
-                <weaponFailureFixTime>2.0</weaponFailureFixTime>
-                <weaponSuccessChance>0.985</weaponSuccessChance>
+                <weaponFailureFixTime>1.5</weaponFailureFixTime>
+                <weaponSuccessChance>0.995</weaponSuccessChance>
             </li>
             <li Class="TotalWar.ThingComp_SelectFireProperties">
                 <burstShots>3</burstShots>
                 <ticksBetweenShots>45</ticksBetweenShots>
                 <burstPenalty>0.15</burstPenalty>
-                <autoPenalty>0.55</autoPenalty>
+                <autoPenalty>0.60</autoPenalty>
             </li>
             <li Class="TotalWar.ThingComp_TrainingProperties">
             </li>

@@ -54,11 +54,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HarmonyBase.cs" />
+    <Compile Include="Harmony_MoveImmediatelyPatch.cs" />
+    <Compile Include="Harmony_TWHunting.cs" />
+    <Compile Include="MainTabWindow_Combat.cs" />
     <Compile Include="SelectFireGizmoHarmonyPatch.cs" />
     <Compile Include="ThingComp_Reliability.cs" />
     <Compile Include="ThingComp_ReliabilityProperties.cs" />
     <Compile Include="ThingComp_SelectFire.cs" />
     <Compile Include="ThingComp_SelectFireProperties.cs" />
+    <Compile Include="ThingComp_Training.cs" />
+    <Compile Include="ThingComp_TrainingProperties.cs" />
     <Compile Include="VerbTW.cs" />
     <Compile Include="Verb_LaunchProjectileTW.cs" />
     <Compile Include="Verb_ShootTW.cs" />
