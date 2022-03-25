@@ -19,16 +19,5 @@ namespace TotalWar
         {
             base.Initialize(props);
         }
-
-        public override void CompTick()
-        {
-            base.CompTick();
-            if (((Find.TickManager.TicksGame) >= (ticksToShoot + lastShotTick)) && ticksToShoot != 0)
-            {
-                Log.Message("runs");
-                Messages.Message(("is ready to fire!").Translate(), MessageTypeDefOf.NeutralEvent);
-                alerted = true;
-            }
-        }
     }
 }

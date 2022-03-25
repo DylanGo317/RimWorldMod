@@ -53,6 +53,7 @@ namespace TotalWar
                     reliability.checkStatus();
                     if (!reliability.canShoot)
                     {
+                        MoteMaker.ThrowText(this.caster.PositionHeld.ToVector3(), this.caster.MapHeld, "Jammed!", 0.5f);
                         return false;
                     }
                     //Sets values for success chance when it has not yet been initialized
@@ -63,6 +64,7 @@ namespace TotalWar
                     float successChance = reliability.weaponSuccess;
                     if (Rand.Value > successChance)
                     {
+                        MoteMaker.ThrowText(this.caster.PositionHeld.ToVector3(), this.caster.MapHeld, "Jammed!", 0.5f);
                         reliability.resetTickSinceLastShot();
                         return false;
                     }

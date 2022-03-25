@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="HarmonyBase.cs" />
     <Compile Include="Harmony_MoveImmediatelyPatch.cs" />
+    <Compile Include="Harmony_TrainingAlert.cs" />
     <Compile Include="Harmony_TWHunting.cs" />
     <Compile Include="MainTabWindow_Combat.cs" />
     <Compile Include="SelectFireGizmoHarmonyPatch.cs" />
