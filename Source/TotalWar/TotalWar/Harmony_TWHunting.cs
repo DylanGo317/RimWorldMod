@@ -9,18 +9,21 @@ using HarmonyLib;
 
 namespace TotalWar
 {
-    [HarmonyPatch(typeof(WorkGiver_HunterHunt), "HasHuntingWeapon")]
+    [HarmonyPatch(typeof(WorkGiver_HunterHunt), nameof(WorkGiver_HunterHunt.HasHuntingWeapon))]
     class Harmony_TWHunting
     {
         static void Postfix(Pawn p, ref bool __result)
         {
-            if (!__result && p.equipment.Primary.def.Verbs != null)
+            if (p.equipment.Primary != null)
             {
-                foreach (VerbProperties v in p.equipment.Primary.def.Verbs)
+                if (!__result && p.equipment.Primary.def.Verbs != null)
                 {
-                    if (typeof(Verb_LaunchProjectileTW).IsAssignableFrom(v.verbClass))
+                    foreach (VerbProperties v in p.equipment.Primary.def.Verbs)
                     {
-                        __result = true;
+                        if (typeof(Verb_LaunchProjectileTW).IsAssignableFrom(v.verbClass))
+                        {
+                            __result = true;
+                        }
                     }
                 }
             }
